@@ -1,0 +1,53 @@
+@use "./../helpers/" as *;
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+  font-family: var(--font);
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  max-width: 100%;
+  display: block;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+section {
+  padding-block: pxToRem(25);
+
+  @include breakpoint-up("medium") {
+    padding-block: pxToRem(48);
+  }
+}
+
+.container {
+  width: min(100% - pxToRem(25), pxToRem(1000));
+  margin-inline: auto;
+}

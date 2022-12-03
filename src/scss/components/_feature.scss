@@ -1,0 +1,50 @@
+@use "./../helpers" as *;
+
+.feature {
+  &__item {
+    display: grid;
+    gap: pxToRem(18);
+
+    &:nth-of-type(2) {
+      margin-block: pxToRem(30);
+    }
+
+    @include breakpoint-up("medium") {
+      gap: pxToRem(25);
+      grid-template-columns: pxToRem(30) auto;
+    }
+  }
+
+  &__icon {
+    width: pxToRem(30);
+    margin-inline: auto;
+
+    @include breakpoint-up("medium") {
+      margin-inline: initial;
+    }
+  }
+
+  &__title {
+    font-size: var(--fs-title);
+  }
+
+  &__description {
+    margin-top: pxToRem(5);
+    width: min(100%, 300px);
+    margin-inline: auto;
+
+    @include breakpoint-up("medium") {
+      margin-inline: initial;
+    }
+  }
+
+  &__button {
+    margin-top: pxToRem(30);
+    @include button;
+    @include button-cta(var(--clr-red), var(--clr-white));
+
+    @include breakpoint-up("medium") {
+      margin-left: pxToRem(55);
+    }
+  }
+}

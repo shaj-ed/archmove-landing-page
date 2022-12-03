@@ -1,0 +1,34 @@
+@use "./../helpers/" as *;
+
+.nav {
+  margin-left: pxToRem(100);
+
+  &__container {
+    height: 100%;
+    display: flex;
+    gap: pxToRem(20);
+  }
+
+  &__link {
+    color: var(--clr-black);
+
+    &:hover {
+      opacity: 0.9;
+      text-decoration: underline;
+    }
+  }
+
+  @include breakpoint-down("medium") {
+    margin-left: 0;
+
+    &__container {
+      flex-direction: column;
+      justify-content: center;
+      gap: pxToRem(20);
+    }
+
+    &__link {
+      color: var(--clr-white);
+    }
+  }
+}

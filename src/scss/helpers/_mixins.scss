@@ -1,0 +1,59 @@
+@use "./functions" as f;
+
+// responsive breakpoint mixin
+$breakpoint-size-up: (
+  "medium": 48em,
+  "large": 64em,
+  "xlarge": 90em,
+);
+
+$breakpoint-size-down: (
+  "medium": 47.9375em,
+  //   "medium": 48.0625em,
+);
+
+@mixin breakpoint-up($size) {
+  $device-size: map-get($breakpoint-size-up, $size);
+
+  @media (min-width: $device-size) {
+    @content;
+  }
+}
+
+@mixin breakpoint-down($size) {
+  $device-size: map-get($breakpoint-size-down, $size);
+
+  @media (max-width: $device-size) {
+    @content;
+  }
+}
+
+// button
+@mixin button {
+  outline: 0;
+  border: 0;
+  border-radius: f.pxToRem(4);
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+@mixin button-cta($bg, $clr) {
+  @include button;
+  background-color: $bg;
+  color: $clr;
+  font-size: f.pxToRem(14);
+  font-weight: 500;
+  text-transform: capitalize;
+  padding: f.pxToRem(8) f.pxToRem(24);
+}
+
+@mixin button-icon($bg, $clr) {
+  @include button;
+  background-color: $bg;
+  color: $clr;
+  padding: f.pxToRem(10) f.pxToRem(10);
+}

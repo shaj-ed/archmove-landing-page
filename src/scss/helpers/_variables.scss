@@ -1,0 +1,18 @@
+@use "./mixins" as m;
+@use "./functions" as f;
+
+:root {
+  --font: "Josefin Sans", sans-serif; // Fonts
+
+  --fs-heading: clamp(#{f.pxToRem(28)}, 8vw, #{f.pxToRem(72)});
+  --fs-sub-heading: clamp(#{f.pxToRem(24)}, 5vw, #{f.pxToRem(48)});
+  --fs-title: #{f.pxToRem(16)};
+  --fs-body-large: clamp(#{f.pxToRem(18)}, 2.5vw, #{f.pxToRem(26)});
+  --fs-body-medium: clamp(#{f.pxToRem(15)}, 2vw, #{f.pxToRem(16)});
+
+  --background-light: #dedede;
+  --background-dark: #3e3e3e;
+  --clr-white: #ffffff;
+  --clr-black: #222222;
+  --clr-red: #fd665e;
+}

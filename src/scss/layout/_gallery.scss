@@ -1,0 +1,42 @@
+@use "./../helpers" as *;
+
+.gallery {
+  text-align: center;
+  overflow-x: hidden;
+
+  &__container {
+    width: 100%;
+    display: flex;
+    gap: pxToRem(15);
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+  }
+
+  &__item {
+    min-width: pxToRem(260);
+    min-height: pxToRem(400);
+
+    img {
+      min-height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &__button-container {
+    text-align: right;
+    margin-top: pxToRem(20);
+  }
+
+  &__button {
+    @include button;
+    width: pxToRem(40);
+
+    &--left {
+      @include button-icon(var(--clr-white), var(--clr-black));
+    }
+
+    &--right {
+      @include button-icon(var(--clr-red), var(--clr-white));
+    }
+  }
+}

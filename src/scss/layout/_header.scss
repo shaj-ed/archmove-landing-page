@@ -1,0 +1,77 @@
+@use "./../helpers/" as *;
+
+.header {
+  width: 100%;
+  background-color: var(--background-light);
+
+  &__inner {
+    width: min(100%, pxToRem(1100));
+    margin-inline: auto;
+    padding: pxToRem(20);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    @include breakpoint-up("medium") {
+      justify-content: initial;
+    }
+  }
+
+  @include breakpoint-up("medium") {
+    &__buttons {
+      margin-left: auto;
+    }
+  }
+
+  @include breakpoint-down("medium") {
+    &__buttons {
+      display: flex;
+      flex-direction: row-reverse;
+    }
+  }
+
+  &__navigation {
+    flex: 2;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    @include breakpoint-down("medium") {
+      width: pxToRem(280);
+      height: 100vh;
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      background-color: var(--background-dark);
+      padding-inline: pxToRem(30);
+      flex-direction: column;
+      gap: 50px;
+      justify-content: center;
+      align-items: start;
+      transform: translateX(-100%);
+      transition: all 0.3s ease-in-out;
+
+      &.nav-handle {
+        width: 100%;
+        transform: translateX(0);
+      }
+    }
+  }
+
+  &__cta {
+    @include button;
+
+    &--light {
+      @include button-cta(var(--clr-light), var(--clr-black));
+
+      @include breakpoint-down("medium") {
+        @include button-cta(var(--clr-light), var(--clr-red));
+      }
+    }
+
+    &--dark {
+      @include button-cta(var(--clr-red), var(--clr-white));
+    }
+  }
+}

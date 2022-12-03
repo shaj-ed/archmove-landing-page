@@ -1,0 +1,33 @@
+@use "./../helpers" as *;
+
+.heading {
+  font-size: var(--fs-heading);
+  line-height: 1.2;
+}
+
+.sub-heading {
+  font-size: var(--fs-sub-heading);
+  line-height: 1.3;
+}
+
+.body-large {
+  font-size: var(--fs-body-large);
+  font-weight: 300;
+}
+
+.body-medium {
+  font-size: var(--fs-body-medium);
+  line-height: 1.3;
+}
+
+.heading-red {
+  color: var(--clr-red);
+}
+
+.margin-heading {
+  margin-bottom: pxToRem(25);
+
+  @include breakpoint-up("medium") {
+    margin-bottom: pxToRem(40);
+  }
+}

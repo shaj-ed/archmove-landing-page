@@ -1,0 +1,19 @@
+@use "./../helpers" as *;
+
+.partner {
+  &__wrapper {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: pxToRem(10);
+  }
+
+  &__logo {
+    cursor: pointer;
+
+    &:hover {
+      opacity: 0.9;
+    }
+  }
+}

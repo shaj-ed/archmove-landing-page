@@ -1,0 +1,64 @@
+@use "./../helpers" as *;
+
+.testimonial {
+  text-align: center;
+
+  @include breakpoint-up("medium") {
+    text-align: left;
+  }
+
+  &__item {
+    text-align: left;
+    width: min(100% - 20, pxToRem(600));
+    margin-inline: auto;
+    position: relative;
+  }
+
+  &__quotation {
+    content: "";
+    position: absolute;
+    width: pxToRem(30);
+    top: pxToRem(-10);
+    left: pxToRem(-40);
+
+    @include breakpoint-up("medium") {
+      width: pxToRem(60);
+      left: pxToRem(-80);
+    }
+  }
+
+  &__description {
+    margin-bottom: pxToRem(20);
+
+    @include breakpoint-up("medium") {
+      margin-bottom: pxToRem(40);
+    }
+  }
+
+  &__who {
+    font-size: pxToRem(18);
+    font-weight: 700;
+  }
+
+  &__company {
+    font-size: pxToRem(16);
+    font-weight: 400;
+  }
+
+  &__button-container {
+    text-align: right;
+  }
+
+  &__button {
+    @include button;
+    width: pxToRem(40);
+
+    &--left {
+      @include button-icon(transparent, var(--clr-black));
+    }
+
+    &--right {
+      @include button-icon(var(--clr-red), var(--clr-white));
+    }
+  }
+}
