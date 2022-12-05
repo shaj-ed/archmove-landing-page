@@ -2,28 +2,28 @@
 
 .testimonial {
   text-align: center;
+  overflow: hidden;
+  position: relative;
 
   @include breakpoint-up("medium") {
     text-align: left;
   }
 
-  &__item {
+  &__content {
     text-align: left;
     width: min(100% - 20, pxToRem(600));
     margin-inline: auto;
     position: relative;
+    display: flex;
+    transition: all 0.1s ease;
   }
 
-  &__quotation {
-    content: "";
-    position: absolute;
-    width: pxToRem(30);
-    top: pxToRem(-10);
-    left: pxToRem(-40);
+  &__item {
+    flex: 1 0 100%;
+    opacity: 0;
 
-    @include breakpoint-up("medium") {
-      width: pxToRem(60);
-      left: pxToRem(-80);
+    &.opacity {
+      opacity: 1;
     }
   }
 
